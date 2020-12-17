@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="back-button ion-activatable" (click)="closeModal()">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-buttons>
+
+    <img src="../../../assets/logos/logo-large.png" />
+
+    <ion-button slot="end" class="help-icon">
+      <ion-icon name="help-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-mysearch [tabPage]="true" (closeModal)="closeModal()"></app-mysearch>
+</ion-content>

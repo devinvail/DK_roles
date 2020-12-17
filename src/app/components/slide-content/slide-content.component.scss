@@ -1,0 +1,62 @@
+ion-card {
+  // --background: red;
+}
+
+.heading {
+  text-align: left;
+  // margin-bottom: 4rem;
+}
+
+#textfield {
+  // height: 100%;
+}
+
+#textfield,
+.excerpted-from,
+.related-resources {
+  background-color: var(--ion-mode-light-color);
+  text-align: left;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+}
+
+li {
+  p {
+    font-size: 16px;
+  }
+}
+
+
+
+.related-resources {
+  padding: 0px 0px 0 !important;
+
+  .header {
+    --background: var(--ion-resource-color);
+    --color: #fff;
+    font-weight: bold;
+  }
+
+  ul {
+    list-style-type: none !important;
+  }
+
+  .resources-content {
+    // padding: 10px;
+    font-size: 15px;
+    border-bottom: 1px solid #5c7684;
+
+
+  }
+}
+
+ion-grid,
+.content {
+  height: 90%;
+}
+
+.excerpted-from {
+  h4 {
+    margin: 0px;
+  }
+}

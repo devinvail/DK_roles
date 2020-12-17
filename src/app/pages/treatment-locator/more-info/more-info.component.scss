@@ -1,0 +1,39 @@
+ion-toolbar {
+  display: flex;
+
+  img {
+    display: block;
+    margin: auto;
+    padding: 12px 0px;
+    position: relative;
+    left: -19px;
+  }
+
+
+  .back-button {
+    ion-icon {
+      color: #fff;
+      font-size: 38px;
+    }
+  }
+}
+
+ion-content {
+  .bottom-border {
+    border-bottom: 1px solid rgb(196, 196, 196);
+  }
+
+  .p-10 {
+    padding: 10px 5px;
+  }
+
+  .heading {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  ion-label {
+    font-family: Arial,
+      sans-serif;
+  }
+}

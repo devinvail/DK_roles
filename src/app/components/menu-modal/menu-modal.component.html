@@ -1,0 +1,95 @@
+<ion-content [hidden]="!mainMenu">
+  <ion-list id="inbox-list">
+    <ion-toolbar>
+      <ion-title class="text-color">Main Menu</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="dismissModal()">
+          <ion-icon name="close-outline" class="text-color"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+    <div class="separator"></div>
+
+    <ion-list>
+      <div *ngFor="let p of appPages; let i = index">
+        <ion-item routerDirection="root" (click)="navigateToPage(p.link, i)" lines="none" detail="false"
+          [class.selected]="selectedIndex == i" *ngIf="!p.children" class="menu-item">
+          <ion-label>{{ p.name }}</ion-label>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+        <ion-item (click)="toggleItem(p)" lines="none" detail="false" [class.selected]="selectedIndex == i"
+          *ngIf="p.children" class="menu-item">
+          <ion-label>{{ p.name }}</ion-label>
+          <ion-icon name="chevron-forward-outline" *ngIf="!p.isOpen"></ion-icon>
+          <ion-icon slot="end" name="chevron-down-outline" *ngIf="p.isOpen"></ion-icon>
+        </ion-item>
+      </div>
+    </ion-list>
+  </ion-list>
+</ion-content>
+<ion-content [hidden]="!isSubMenu">
+  <ion-list id="inbox-list">
+    <ion-list-header class="ion-margin-bottom" (click)="activateMainPage()">
+      <ion-icon name="chevron-back-outline"></ion-icon>{{ pageName }}
+    </ion-list-header>
+    <div class="separator"></div>
+
+    <ion-list>
+      <div *ngFor="let p of subMenu; let i = index">
+        <div *ngFor="let item of p.children">
+          <ion-item routerDirection="root" (click)="navigateToPage(item.link, i)" lines="none" detail="false"
+            [class.selected]="selectedIndex == i" *ngIf="!item.children" class="menu-item">
+            <ion-label>{{ item.name }}</ion-label>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-item>
+          <ion-item lines="none" detail="false" [class.selected]="selectedIndex == i" *ngIf="item.children"
+            class="menu-item parent-item">
+            <ion-label>{{ item.name }}:</ion-label>
+          </ion-item>
+
+          <div *ngIf="item.children">
+            <div *ngFor="let subItem of item.children; let i = index">
+              <ion-item (click)="toggleSubItem(subItem, i, item.name)" lines="none" detail="false"
+                [class.selected]="selectedIndex == i" class="menu-item">
+                <ion-label class="ion-margin-start">{{ subItem.name }}</ion-label>
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+              </ion-item>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ion-list>
+  </ion-list>
+</ion-content>
+<ion-content [hidden]="!isExpandedMenu">
+  <ion-list id="inbox-list">
+    <ion-list-header (click)="activateSubPage()" class="ion-margin-bottom">
+      <ion-icon name="chevron-back-outline"></ion-icon>{{ subPageName }}
+    </ion-list-header>
+    <div class="separator"></div>
+    <ion-list>
+      <div *ngFor="let p of expandedMenu; let i = index">
+        <ion-item routerDirection="root" (click)="navigate(p, i)" lines="none" detail="false"
+          [class.selected]="selectedIndex == i" *ngIf="!p.children" class="menu-item">
+          <ion-label>{{ p.name }}</ion-label>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+
+        <ion-item lines="none" detail="false" [class.selected]="selectedIndex == i" *ngIf="p.children"
+          class="menu-item parent-item">
+          <ion-label>{{ p.name }}:</ion-label>
+        </ion-item>
+
+        <div *ngIf="p.children">
+          <div *ngFor="let i of p.children">
+            <ion-item (click)="navigate(i.link, i)" lines="none" detail="false" [class.selected]="selectedIndex == i"
+              class="menu-item">
+              <ion-label class="ion-margin-start">{{ i.name }}</ion-label>
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </ion-item>
+          </div>
+        </div>
+      </div>
+    </ion-list>
+  </ion-list>
+</ion-content>

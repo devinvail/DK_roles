@@ -1,0 +1,72 @@
+<!-- <ion-app>
+  <app-menu-modal></app-menu-modal>
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+</ion-app> -->
+<!--
+<ion-app *ngIf="utilService.isSideMenu">
+  <ion-split-pane contentId="main-content">
+    <ion-menu menuId="main" contentId="main-content" type="overlay">
+      <ion-content>
+        <ion-list id="inbox-list">
+          <ion-list-header class="ion-margin-bottom">Main Menu</ion-list-header>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index" mode="md">
+            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
+              detail="false" [class.selected]="selectedIndex == i">
+              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+      <ion-footer class="ion-no-border">
+        <div text-center class="footer-div">
+          <p class="tagline" class="ion-text-center contacts">
+            Disaster Distress Helpline <br />
+            <a href="tel:1-800-985-5990">1-800-985-5990</a>
+            <br />
+            <a href="sms:66746">Text TalkWithUs to 66746</a>
+          </p>
+        </div>
+      </ion-footer>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app> -->
+
+<ion-app>
+  <div class="networkMessage fixed-message-bottom" *ngIf="messageFlag">
+    App is currently in offline mode.
+    <u (click)="showLearnMoreModal()">Learn More.</u>
+  </div>
+  <ion-router-outlet id="main-content" animated="true" mode="ios">
+  </ion-router-outlet>
+</ion-app>
+
+<!-- <ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" menuId="main-content" type="overlay">
+      <ion-content [@slideInOut] [hidden]="!mainMenu">
+
+        <ion-list id="inbox-list">
+          <ion-list-header class="ion-margin-bottom">Main Menu</ion-list-header>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index" mode="md">
+            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
+              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list> </ion-content
+      ><ion-footer class="ion-no-border">
+        <div text-center class="footer-div">
+          <p class="tagline" class="ion-text-center contacts">
+            Disaster Distress Helpline <br />
+            <a href="tel:1-800-985-5990">1-800-985-5990</a>
+            <br />
+            <a href="sms:66746">Text TalkWithUs to 66746</a>
+          </p>
+        </div>
+      </ion-footer>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app> -->

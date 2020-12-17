@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="back-button ion-activatable" [ngClass]="{ none: !showBackButton }" (click)="navigateBack()">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </ion-buttons>
+
+    <img src="../../../assets/logos/logo-large.png" />
+
+    <ion-button (click)="openHelpModal()" slot="end">
+      <ion-icon name="help-circle-outline"></ion-icon>
+    </ion-button>
+    <!-- <ion-buttons slot="end" *ngIf="utilService.isSideMenu">
+      <ion-menu-button mode="ios" class="ion-margin-end"></ion-menu-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>

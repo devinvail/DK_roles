@@ -1,0 +1,83 @@
+// ion-toolbar {
+//   display: flex;
+
+//   img {
+//     display: block;
+//     margin: auto;
+//     padding: 12px 0px;
+//     position: relative;
+//     left: -19px;
+//   }
+
+
+//   .back-button {
+//     ion-icon {
+//       color: #fff;
+//       font-size: 38px;
+//     }
+//   }
+// }
+
+.search-header {
+  text-align: center;
+}
+
+ion-card {
+  margin: 8px;
+
+  ion-card-header {
+    text-align: Left;
+
+    ion-card-title {
+      font-size: 16px;
+      font-weight: normal;
+      line-height: 1.2em;
+    }
+  }
+}
+
+ion-col {
+  font-size: 13px;
+}
+
+.heading {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+ion-list {
+  background: transparent;
+
+  .vertical-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
+
+ion-card {
+  --background: var(--ion-table-background-color);
+
+  ion-card-content {
+    padding-bottom: 0;
+  }
+
+  .search-btn {
+    ion-button {
+      float: right;
+      margin: 0;
+      background-color: var(--ion-color-primary-dark);
+    }
+
+    ion-icon {
+      float: right;
+      font-size: 2.1em;
+      color: var(--ion-color-primary-dark);
+    }
+  }
+
+  .treatment-locator-btn {
+    --background: var(--ion-color-primary-dark);
+  }
+}

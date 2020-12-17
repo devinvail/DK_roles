@@ -1,0 +1,209 @@
+ion-menu ion-content {
+  --background: var(--ion-item-background, var(--ion-background-color, #fff));
+}
+
+ion-menu.md ion-content {
+  --padding-start: 8px;
+  --padding-end: 8px;
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+}
+
+ion-menu.md ion-list {
+  padding: 20px 0;
+}
+
+ion-menu.md ion-note {
+  margin-bottom: 30px;
+}
+
+ion-menu.md ion-list-header,
+ion-menu.md ion-note {
+  padding-left: 10px;
+}
+
+ion-menu.md ion-list#inbox-list {
+  border-bottom: 1px solid var(--ion-color-step-150, #d7d8da);
+}
+
+ion-menu.md ion-list#inbox-list ion-list-header {
+  font-size: 22px;
+  font-weight: 600;
+
+  min-height: 20px;
+}
+
+ion-menu.md ion-list#labels-list ion-list-header {
+  font-size: 16px;
+
+  margin-bottom: 18px;
+
+  color: #757575;
+
+  min-height: 26px;
+}
+
+ion-menu.md ion-item {
+  --padding-start: 10px;
+  --padding-end: 10px;
+  border-radius: 4px;
+}
+
+ion-menu.md ion-item.selected {
+  font-weight: bolder;
+  --background: rgba(var(--ion-color-primary-rgb), 0.14);
+}
+
+ion-menu.md ion-item.selected ion-icon {
+  color: var(--ion-color-primary);
+}
+
+ion-menu.md ion-item ion-icon {
+  color: #252627;
+}
+
+ion-menu.md ion-item ion-label {
+  font-weight: 500;
+}
+
+ion-menu.ios ion-content {
+  --padding-bottom: 20px;
+}
+
+// ion-menu.ios ion-list {
+//   padding: 20px 0 0 0;
+// }
+
+ion-menu.ios ion-note {
+  line-height: 24px;
+  margin-bottom: 20px;
+}
+
+ion-menu.ios ion-item {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --min-height: 50px;
+}
+
+ion-menu.ios ion-item.selected ion-icon {
+  color: var(--ion-color-primary);
+}
+
+ion-menu.ios ion-item ion-icon {
+  font-size: 24px;
+  color: #252627;
+}
+
+ion-menu.ios ion-list#labels-list ion-list-header {
+  margin-bottom: 8px;
+}
+
+ion-menu.ios ion-list-header,
+ion-menu.ios ion-note {
+  padding: 16px;
+  background-color: var(--ion-toolbar-background);
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-bottom: 0px;
+  display: flex;
+  align-items: center;
+
+  ion-icon {
+    font-size: 25px;
+  }
+}
+
+
+
+ion-menu.ios ion-note {
+  margin-bottom: 8px;
+}
+
+ion-note {
+  display: inline-block;
+  font-size: 16px;
+
+  color: var(--ion-color-medium-shade);
+}
+
+ion-item.selected {
+  font-weight: bolder;
+  --color: var(--ion-color-primary);
+}
+
+.contacts {
+  font-weight: bolder;
+  color: #fff;
+  line-height: 25px;
+
+  a {
+    color: #fff;
+    font-weight: normal;
+  }
+}
+
+.footer-div {
+  background-color: #577786;
+}
+
+ion-footer {
+  background-color: #577786;
+
+  ion-toolbar {
+    --background: #577786;
+    color: #fff;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
+
+.separator {
+  height: 20px;
+  background-color: #577786
+}
+
+.menu-item {
+  --background: #D8CAAD;
+  margin-bottom: 3px;
+  --color: #000000 !important;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.parent-item {
+  --min-height: 30px !important;
+  --background: #ECDEC1;
+  font-size: 13px;
+}
+
+.networkMessage {
+  height: 25px;
+  z-index: 1000;
+  position: absolute;
+  bottom: 50px;
+  align-self: center;
+  color: #fff;
+  background-color: #676767;
+  width: 100%;
+  padding-left: 15px;
+}
+
+@supports (-webkit-touch-callout: none) {
+
+  /* CSS specific to iOS devices */
+  .fixed-message-bottom {
+    bottom: 50px !important;
+  }
+
+  /* Layout for iPhoneX height=812 or 768px  */
+  @media screen and (min-height: 760px) {
+
+    .fixed-message-bottom {
+      bottom: 86px !important;
+    }
+  }
+}

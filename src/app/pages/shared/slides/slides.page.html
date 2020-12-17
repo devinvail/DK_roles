@@ -1,0 +1,23 @@
+<app-header></app-header>
+<ion-content>
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="share()" >
+      <ion-icon name="share"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <div class="pagination-buttons flex-center">
+    <div
+      class="bullet"
+      *ngFor="let content of contents; let i = index"
+      [ngClass]="{'active': this.activeSlide === i}"
+    ></div>
+  </div>
+
+  <ion-slides #slides pager>
+    <ion-slide *ngFor="let content of contents">
+      <ion-content>
+        <app-slide-content [data]="content.html"></app-slide-content>
+      </ion-content>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

@@ -1,0 +1,8 @@
+{
+  "/myapi/*": {
+    "target": "https://pedro.internal.lab:9443",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

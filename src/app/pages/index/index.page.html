@@ -1,0 +1,22 @@
+<app-header>
+  <ion-toolbar>
+    <ion-label>HELLO</ion-label>
+  </ion-toolbar>
+</app-header>
+<ion-content>
+  <ion-list>
+    <div *ngFor="let p of appPages; let i = index">
+      <ion-item-divider class="separator">
+        <ion-label> {{p.name}} </ion-label>
+      </ion-item-divider>
+      <div *ngIf="p.children">
+        <div *ngFor="let item of p.children">
+          <ion-item (click)="navigateToPage(item.name,p.name,item.link)">
+            <ion-label>{{item.name}}</ion-label>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-item>
+        </div>
+      </div>
+    </div>
+  </ion-list>
+</ion-content>

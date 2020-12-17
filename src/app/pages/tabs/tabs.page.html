@@ -1,0 +1,9 @@
+<ion-router-outlet id="main-content" animated="true" mode="ios"></ion-router-outlet>
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button *ngFor="let item of tabItems" (click)="navigate(item.route)">
+      <ion-icon [name]="item.icon" class="tab-icon"></ion-icon>
+      <ion-label>{{item.name}}</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

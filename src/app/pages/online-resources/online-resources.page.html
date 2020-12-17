@@ -1,0 +1,55 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="back-button ion-activatable" (click)="navigateBack()">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </ion-buttons>
+
+    <img src="../../../assets/logos/logo-large.png" />
+    <ion-buttons slot="end" class="share-icon">
+      <ion-button size="small" expand="full" (click)="share()">
+        <ion-icon name="share-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end" *ngIf="utilService.isSideMenu">
+      <ion-menu-button mode="ios" class="ion-margin-end"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header> -->
+
+<app-header></app-header>
+
+<ion-content>
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="share()">
+      <ion-icon name="share"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <h2>{{pageName}}</h2>
+
+  <ion-grid class="table ion-margin-bottom ion-margin-top">
+    <ion-row class="thead">
+      <ion-col size="10" class="right-border">Select/Unselect All</ion-col>
+      <ion-col size="2">
+        <ion-checkbox color="dark" (ionChange)="toggleAll($event)"></ion-checkbox>
+      </ion-col>
+    </ion-row>
+    <ion-row class="top-border tbody" *ngFor="let item of information">
+      <ion-col size="12" class="right-border theader" no-padding>{{item.title}}</ion-col>
+      <ion-col size="12" *ngFor="let child of item.children; let j = index" class="name top-border">
+        <ion-label class="right-border" [innerHTML]="child.title" (click)="openUrl(child.url,child.type,item.title)"> </ion-label>
+        <ion-checkbox color="dark" [(ngModel)]="child.checked" (ionChange)="getValue($event,item,child)"> </ion-checkbox>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<!-- <ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" class="flex-center">
+        <ion-button (click)="openActionMenu()" size="small" expand="full" color="dark"> <ion-icon name="share-outline"></ion-icon> Share </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer> -->

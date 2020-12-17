@@ -1,0 +1,11 @@
+{
+  "name": "disasterResponse",
+  "integrations": {
+    "cordova": {
+      "enabled": false
+    },
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "3fef91e6"
+}

@@ -1,0 +1,22 @@
+<ion-grid fixed class="slides-content">
+  <ion-row>
+    <ion-col size="12">
+      <h2 class="heading" *ngIf="data">{{ data.title }}</h2>
+    </ion-col>
+  </ion-row>
+  <ion-row class="content" *ngIf="data">
+    <ion-col size="12">
+      <div id="textfield" *ngIf="data.content" [innerHTML]="data.content | safeHtml"></div>
+      <div class="excerpted-from" *ngIf="data.excerpted_from" [innerHTML]=" getExcerptedFrom(data.excerpted_from) | safeHtml"></div>
+      <div class="related-resources">
+        <ion-item class="header" *ngIf="data.related_resources">Related Resources </ion-item>
+
+        <div class="resources-content" *ngIf="data.related_resources" [innerHTML]="getRelatedResources(data.related_resources) | safeHtml"></div>
+      </div>
+      <div class="related-resources" *ngIf="data.further_reading">
+        <ion-item class="header">Further Reading </ion-item>
+        <div class="resources-content" *ngIf="data.further_reading" [innerHTML]="getFurtherReading(data.further_reading) | safeHtml"></div>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>

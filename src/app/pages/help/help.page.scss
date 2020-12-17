@@ -1,0 +1,32 @@
+div {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+}
+
+ion-content {
+    --padding-start: 10px;
+    --padding-end: 10px;
+
+    .heading {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .details {
+        background-color: var(--ion-mode-light-color);
+
+        margin-top: 10px;
+        padding: 0px 20px;
+
+        p {
+            line-height: 25px;
+            --color: var(--ion-mode-dark-color);
+        }
+
+        h3 {
+            font-size: 20px;
+            --color: var(--ion-mode-dark-color);
+        }
+    }
+}

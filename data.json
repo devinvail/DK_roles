@@ -1,0 +1,343 @@
+{
+
+  "Behavioral Health Responder": [{
+      "name": "Psychological First Aid",
+      "link": "slideLink"
+    },
+    {
+      "name": "Suicide Prevention and Intervention",
+      "link": "slideLink"
+    },
+    {
+      "name": "Disaster Counseling Refresher",
+      "link": "slideLink"
+    },
+
+    {
+      "name": "Cultural Competence Special Populations",
+      "link": null,
+      "children": [{
+          "name": "General Cultural Competence",
+          "link": "slideLink"
+        },
+        {
+          "name": "American Indians/Alaska Natives",
+          "link": "slideLink"
+        }
+      ]
+    },
+    {
+      "name": "Responding to Specific Incidents",
+      "link": null,
+      "children": [{
+          "name": "Infectious Diseases",
+          "link": "slideLink"
+        },
+        {
+          "name": "Terrorism",
+          "link": "slideLink"
+        }
+      ]
+    },
+    {
+      "name": "Stress Prevention & Management",
+      "link": "slideLink"
+    }
+  ],
+
+  "Behaviors and Interventions": [{
+      "name": "Problem Solving with Survivors",
+      "link": "slideLink"
+    },
+
+    {
+      "name": "Disaster Reactions & Interventions",
+      "link": null,
+      "children": [{
+          "name": "Ages 1-5",
+          "link": "slideLink"
+        }, {
+          "name": "Ages 6-11",
+          "link": "slideLink"
+        },
+        {
+          "name": "Ages 12-18",
+          "link": "slideLink"
+        },
+        {
+          "name": "Adults",
+          "link": "slideLink"
+        },
+        {
+          "name": "Older Adults",
+          "link": "slideLink"
+        }
+      ]
+    },
+    {
+      "name": "Cultural Competence",
+      "link": null,
+      "children": [{
+          "name": "Sensitivity Checklist",
+          "link": "slideLink"
+        },
+        {
+          "name": "Substance Abuse Indicators",
+          "link": "slideLink"
+        }
+      ]
+    },
+    {
+      "name": "Find Treatment Locations",
+      "link": "slideLink"
+    }
+  ],
+
+  "On-the-Ground Assistance": [{
+      "name": "Behaviors and Interventions",
+      "link": "/sub-section/Behaviors and Interventions"
+    },
+    {
+      "name": "Information to Share with Surviviors",
+      "link": "/information-to-share"
+    },
+    {
+      "name": "Hotlines and Critical Contacts",
+      "link": "/hotlines-and-critical-contacts"
+    },
+    {
+      "name": "SAMHSA Treatment Locator",
+      "link": "slideLink"
+    },
+    {
+      "name": "Online Resources",
+      "link": "/online-resources"
+    },
+    {
+      "name": "Publications Directory",
+      "link": "slideLink"
+    },
+    {
+      "name": "Stress Prevention and Management",
+      "link": null,
+      "children": [{
+          "name": "Behavioral Health Responder",
+          "link": "/slides/Stress Prevention and Management/1"
+        },
+        {
+          "name": "Supervisor of Behavioral Health Responder",
+          "link": "/slides/Stress Prevention and Management/2"
+        }
+      ]
+    }
+  ],
+
+  "Postdeployment Guide": [{
+      "name": "Tips for Supporting Re-entry",
+      "link": null,
+      "children": [{
+          "name": "Responder",
+          "link": "/slides/Postdeployment Guide/1"
+        },
+        {
+          "name": "Supervisor",
+          "link": "/slides/Postdeployment Guide/2"
+        },
+        {
+          "name": "Family",
+          "link": "/slides/Postdeployment Guide/3"
+        }
+      ]
+    },
+
+    {
+      "name": "Professional Development",
+      "link": "/slides/Professional_Development/1"
+    }
+  ],
+
+  "Prepare to Deploy": [{
+      "name": "Readiness Refresher",
+      "link": null,
+      "children": [{
+          "name": "Behavioral Health Responder",
+          "link": "/sub-section/Behavioral Health Responder"
+        },
+        {
+          "name": "Supervisor of Behavioral Health Responder",
+          "link": "/sub-section/Supervisor of Behavioral Health Responder"
+        }
+      ]
+    },
+
+    {
+      "name": "Find Treatment Locations",
+      "link": "slideLink"
+    }
+  ],
+
+  "Supervisor of Behavioral Health Responder": [{
+      "name": "Stress Prevention & Management",
+      "link": "slideLink"
+    },
+    {
+      "name": "Terrorism: Prepare to Respond",
+      "link": "slideLink"
+    },
+
+    {
+      "name": "Cultural Competence & Special Populations",
+      "link": null,
+      "children": [{
+          "name": "General Cultural Competence",
+          "link": "slideLink"
+        },
+
+        {
+          "name": "American Indians/Alaska Natives",
+          "link": "slideLink"
+        }
+      ]
+    }
+  ],
+  "Information to Share with Survivors": [{
+      "name": "Tips for Talking With and Helping Children and Youth Cope After a Disaster or Traumatic Event: A Guide for Parents, Caregivers, and Teachers (SMA12-4732)",
+      "link": "slides/Information to Share with Survivors/1"
+    },
+    {
+      "name": "Tips for Talking With and Helping Children and Youth Cope After a Disaster or Traumatic Event: A Guide for Parents, Caregivers, and Teachers (Spanish) (SMA12-4732SPANISH)",
+      "link": "slides/Information to Share with Survivors/2"
+    },
+    {
+      "name": "Tips for Survivors of a Disaster or Traumatic Event: What to Expect in Your Personal, Family, Work, and Financial Life (SMA13-4775)",
+      "link": "slides/Information to Share with Survivors/3"
+    },
+    {
+      "name": "Tips for Survivors of a Traumatic Event: Managing Your Stress (SMA13-4776)",
+      "link": "slides/Information to Share with Survivors/4"
+    },
+    {
+      "name": "Tips for College Students: After a Disaster or Other Trauma (SMA13-4777)",
+      "link": "slides/Information to Share with Survivors/5"
+
+    },
+    {
+      "name": "Tips for College Students: After a Disaster or Other Trauma: R U A Survivor of a Disaster or Other Trauma? Texting Version (SMA13-4778)",
+      "link": "slides/Information to Share with Survivors/6"
+    }
+  ],
+  "Hotlines and Critical Contacts": [{
+      "name": "Disaster Distress Helpline (24/7)",
+      "number": "1-800-985-5990",
+      "tty": "1-800-7994889",
+      "description": "Crisis counselling and referrals"
+    },
+    {
+      "name": "Suicide Prevention Lifeline (24/7)",
+      "number": "1-800-273-8255",
+      "tty": "800-799-4889"
+    },
+    {
+      "name": "Spanish Suicide Prevention Line (24/7)",
+      "number": "1-888-628-9454"
+    },
+    {
+      "name": "SAMHSA's Treatment Referral Line (24/7)",
+      "number": "1-800-662-4357",
+      "description": "Referrals to mental health and substance abuse treatment facilities"
+    },
+    {
+      "name": "National Domestic Violence Hotline",
+      "number": "1-800-799-7233"
+    },
+    {
+      "name": "Eldercare Locator",
+      "number": "1-800-677-1116",
+      "description": "Service for older adults and their families"
+    }, {
+      "name": "HRSA Health Center Locator",
+      "number": "1-877-677-1116",
+      "description": "HRSA health centers care for you, even if you have no health insurance. You pay what you can afford, based on your income"
+    }
+  ],
+  "Online Resources": [{
+    "name": "General Resources",
+    "children": [{
+      "name": "fema.gov",
+      "link": "http://whateveritis.com",
+      "type": "web"
+    }, {
+      "name": "SAMHSA<p>1-877-SAMHSA-7 (877-726-4727)</p>",
+      "link": "https://www.samhsa.gov",
+      "type": "web"
+    }, {
+      "name": "More Resources from SAMHSA",
+      "link": "https://www.samhsa.gov/disaster-preparedness",
+      "type": "web"
+    }]
+  }, {
+    "name": "Disaster Preparedness and Communications Tools",
+    "children": [{
+      "name": "American Red Cross Preparedness Checklists",
+      "link": "https://www.redcross.org/prepare/disaster-safety-library",
+      "type": "web"
+    }, {
+      "name": "Assistant Secretary for Preparedness and Response (ASPR)",
+      "link": "https://www.phe.gov/emergency/pages/default.aspx",
+      "type": "web"
+    }, {
+      "name": "Disaster Communication Template Toolkit",
+      "link": "https://store.samhsa.gov/product/SAMHSA-s-Disaster-Kit/SMA11-DISASTER",
+      "type": "web"
+    }]
+  }, {
+    "name": "Psychological First Aid (PFA)",
+    "children": [{
+      "name": "PFA Mobile App",
+      "link": "http://www.nctsnet.org/content/pfa-mobile",
+      "type": "web"
+    }, {
+      "name": "PFA Models for Schools, Medical Reserve Corps, Displaced Families & Youth, Religious Professionals<p>May be downloaded as PDF</p>",
+      "link": "http://www.nctsn.org/content/psychological-first-aid",
+      "type": "web"
+    }, {
+      "name": "Listen, Protect, and Connect (PDF)<p>Children and Parents</p>",
+      "link": "https://www.fema.gov/media-library-data/1499092051917-115ad4c12a44f04a93b4a37c17e99211/PFA(1).pdf",
+      "type": "pdf"
+    }]
+  }, {
+    "name": "Terrorism/Mass Casualty",
+    "children": [{
+      "name": "CDC Mass Casualty Event Preparedness and Response",
+      "link": "http://www.redcross.org/get-help/how-to-prepare-for-emergencies/types-of-emergencies/terrorism",
+      "type": "web"
+    }, {
+      "name": "Chemical, Biological, Radiological, Nuclear, Explosive (CBRNE) Device Response DHHS ASPR Public Health Emergency CBRNE Branch",
+      "link": "https://www.phe.gov/about/oem/prep/Pages/tactical.aspx",
+      "type": "web"
+    }, {
+      "name": "Help for Crime Victims: Domestic Terrorism and Mass Violence - USDOJ OVC",
+      "link": "https://www.ojp.usdoj.gov/ovc/help/domestic_terrorism.html",
+      "type": "web"
+    }, {
+      "name": "Directory of Crime Victim Services<p>Designed to help service providers and individuals locate victim services in the United States and other countries. </p>",
+      "link": "https://ovc.ncjrs.gov/findvictimservices/",
+      "type": "web"
+    }]
+  }, {
+    "name": "Federal and State Guidance",
+    "children": [{
+      "name": "SAMHSA Disaster Technical Assistance Center (DTAC)",
+      "link": "https://www.samhsa.gov/dtac/",
+      "type": "web"
+    }, {
+      "name": "Crisis Counseling Assistance and Training Program (CCP)<p>Helps states, territories, and federally recognized tribes to prepare grant applications for supplemental assistance to the United States and its Territories. Contact the SAMHSA Disaster Technical Assistance Center (DTAC) at 1-800-308-3515 or visit their online contact form for consultation.</p>",
+      "link": "https://www.samhsa.gov/dtac/ccp",
+      "type": "web"
+    }, {
+      "name": "National Incident Management System (NIMS) (FEMA)",
+      "link": "https://www.fema.gov/nims",
+      "type": "web"
+    }]
+  }]
+}

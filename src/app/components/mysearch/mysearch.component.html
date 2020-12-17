@@ -1,0 +1,85 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" class="back-button ion-activatable" (click)="close()">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-buttons>
+    <img src="../../../assets/logos/logo-large.png" />
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-grid fixed>
+  <ion-row>
+    <ion-col size="12" class="bottom-border p-10 search-header">
+      <ion-label class="heading" color="dark">My Searches</ion-label>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<div *ngIf="storageData.length > 0">
+  <ion-list lines="none" class="facilities">
+    <ion-card *ngFor="let item of storageData;let j = index" class="ion-no-padding">
+      <ion-grid>
+        <ion-row class="ion-no-padding">
+          <ion-col size="0.5" class="vertical-center">
+            <ion-label color="dark" class="heading">{{j +1}}. </ion-label>
+          </ion-col>
+
+          <ion-col>
+            <ion-card-header>
+              <ion-card-title> {{item.keyname | titlecase}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-row>
+                <ion-col class="ion-no-padding details-col">
+                  <ion-row>
+                    <ion-col size="5"><b>Address:</b></ion-col>
+                    <ion-col size="7"> {{item.address}}</ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col size="5"><b>Facility Type:</b></ion-col>
+                    <ion-col size="7"> {{(item.filter.sType === 'BOTH' ? 'SU & MH' : item.filter.sType)}}</ion-col>
+                  </ion-row>
+                  <ion-row *ngIf="item.filter.customDistance != 0 || item.filter.selectedDistance != '0'">
+                    <ion-col size="5"><b>With in:</b></ion-col>
+                    <ion-col size="7">
+                      {{(item.filter.customDistance != 0) ? item.filter.customDistance + ' miles' : item.filter.selectedDistance + ' miles'}}
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col size="5"><b>Service Shortcuts:</b></ion-col>
+                    <ion-col size="7"> {{(item.filter.sCodes !== 'none') ? 'Veteran Affairs' : 'None' }}</ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col size="5.5"><b>Additonal Facility Types:</b></ion-col>
+                    <ion-col size="6.5">{{getAdditionalFacilityType(item.filter)}}</ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col class="ion-no-padding search-btn" size="8">
+                      <ion-button size="small" color="primary-dark" (click)="deleteRecord(item)">Delete</ion-button>
+                    </ion-col>
+                    <ion-col class="ion-no-padding search-btn" size="4">
+                      <ion-button size="small" color="primary-dark" (click)="openPage(item)">Search</ion-button>
+                    </ion-col>
+                  </ion-row>
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </ion-list>
+</div>
+
+<div *ngIf="storageData.length === 0">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>You currently have no saved facility searches. You can save searches on the search filter page
+        after completing a search. To begin, visit the SAMHSA Treatment Locator.</ion-card-title>
+      <ion-button (click)="navigateToMapPage()" expand="full" class="ion-margin treatment-locator-btn">
+        SAMHSA Treatment Locator
+      </ion-button>
+    </ion-card-header>
+  </ion-card>
+</div>

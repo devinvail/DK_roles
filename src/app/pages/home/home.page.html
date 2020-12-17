@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <img src="../../../assets/logos/logo-large.png" />
+    <ion-button (click)="openHelpModal()" slot="end">
+      <ion-icon name="help-circle-outline"></ion-icon>
+    </ion-button>
+
+    <ion-button (click)="openPage()" slot="start">
+      <ion-icon name="settings"></ion-icon>
+      <ion-label class="role">{{this.role}}</ion-label>
+    </ion-button>
+
+    <!-- <ion-buttons slot="end" *ngIf="utilService.isSideMenu">
+      <ion-menu-button mode="ios" class="ion-margin-end" style="display: block;"></ion-menu-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="background-content">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-img src="./../../assets/splash.jpg"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-row>
+    <ion-col size="12">
+      <div id="container">
+        <ion-button
+          (click)="navigate(menu)"
+          style="height: 3.5rem"
+          expand="full"
+          *ngFor="let menu of menus"
+        >
+          <p no-margin>
+            <ion-label id="bolder">{{menu.name}}</ion-label>
+          </p>
+        </ion-button>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-content>

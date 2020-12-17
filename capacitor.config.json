@@ -1,0 +1,22 @@
+{
+  "appId": "gov.hhs.samhsa.app.disaster",
+  "appName": "SAMHSA",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "linuxAndroidStudioPath": "/opt/android-studio/bin/studio.sh",
+  "webDir": "www",
+  "cordova": {
+    "preferences": {
+      "ScrollEnabled": "false",
+      "android-minSdkVersion": "21",
+      "BackupWebStorage": "none",
+      "SplashMaintainAspectRatio": "true",
+      "FadeSplashScreenDuration": "300",
+      "SplashShowOnlyFirstTime": "false",
+      "SplashScreen": "screen",
+      "SplashScreenDelay": "3000",
+      "AutoHideSplashScreen": "false",
+      "cordova.plugins.diagnostic.modules": "LOCATION"
+    }
+  }
+}

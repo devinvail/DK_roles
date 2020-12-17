@@ -1,0 +1,311 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons
+      mode="md"
+      slot="start"
+      class="back-button ion-activatable"
+      [ngClass]="{ none: !showBackButton }"
+      (click)="navigateBack()"
+    >
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </ion-buttons>
+    <img src="../../../assets/logos/logo-large.png" />
+    <ion-buttons
+      mode="md"
+      slot="end"
+      class="ion-activatable filter-button"
+      [ngClass]="{ none: !showBackButton }"
+      (click)="showFacilityFilter()"
+    >
+      <ion-ripple-effect></ion-ripple-effect>
+
+      <ion-row>
+        <ion-col class="icon">
+          <ion-icon name="funnel-outline" color="light" class="filter-icon"></ion-icon>
+          <ion-label class="filter-text">Filter</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-segment [(ngModel)]="selectedSegment" mode="md">
+    <ion-segment-button mode="md" (click)="toggleTab('map')" value="map">
+      <ion-icon name="map"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button
+      mode="md"
+      (click)="toggleTab('facility')"
+      value="facility"
+    >
+      <ion-icon name="business"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button
+      mode="md"
+      (click)="toggleTab('mysearches')"
+      value="mysearches"
+    >
+      <ion-icon name="heart"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content #content>
+  <ion-toolbar class="search-bar" [hidden]="mySearchFlag || offlineLoad">
+    <ion-buttons slot="start" mode="md" class="btn-center">
+      <ion-button mode="md" class="location">
+        <ion-icon name="locate-sharp" color="dark location-icon"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-searchbar
+      mode="md"
+      [(ngModel)]="autocomplete.input"
+      (ionInput)="updateSearchResults()"
+      placeholder="Search for a facility"
+      (ionClear)="ClearAutocomplete()"
+      debounce="300"
+    >
+    </ion-searchbar>
+    <ion-buttons slot="end" mode="md" class="btn-center">
+      <ion-button
+        mode="md"
+        (click)="checkAddressWithZipCode()"
+        class="btn-arrow"
+      >
+        <ion-icon name="arrow-forward-outline" class="ic-arrow"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-list
+    [hidden]="autocompleteItems.length == 0"
+    class="places-list"
+    [hidden]="mySearchFlag"
+  >
+    <ion-item
+      mode="md"
+      *ngFor="let place of autocompleteItems; let i = index"
+      (click)="selectSearchResult(place, i)"
+      class="search-result"
+    >
+      <ion-icon color="dark" name="location-outline"></ion-icon>
+      <ion-label color="dark">{{ place.description }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div class="map-wrapper" [hidden]="!mapFlag" style="height: 100%;">
+    <div [hidden]="offlineLoad" class="full-height">
+      <div #map id="map" style="height: 100%;"></div>
+      <div id="legend-icon" class="empty-legend" (click)="toggleLegend()">
+        <ion-icon name="information-outline" class="legend-icon"></ion-icon>
+      </div>
+      <div *ngIf="legendFlag" #legend id="legend">
+        <h2>Legend</h2>
+        <div [innerHTML]="legendData" class="legend-content"></div>
+      </div>
+    </div>
+    <div
+      [hidden]="!offlineLoad"
+      style="margin-top: 40px;"
+      class="ion-padding-start ion-padding-end"
+    >
+      <p>
+        Your device seem to be offline. Map requies a working Internet
+        Connection.
+      </p>
+    </div>
+  </div>
+  <div [hidden]="!facilityFlag">
+    <!-- <div class="pagination-div">
+      <ul class="pagination">
+        <li>
+          <ion-button (click)="changePage('init')" color="light" expand="block" fill="clear" shape="round"
+            [disabled]="page.currentPage === 0 || page.currentPage === 1">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+            <ion-icon name="chevron-back-outline" class="relative-icon"></ion-icon>
+          </ion-button>
+          <ion-ripple-effect></ion-ripple-effect>
+        </li>
+        <li>
+          <ion-button (click)="changePage('dec')" color="light" expand="block" fill="clear" shape="round"
+            [disabled]="page.currentPage === 0 || page.currentPage === 1">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+          </ion-button>
+        </li>
+        <li class="input-box">
+          <ion-input type="number" color="dark" [(ngModel)]="page.currentPage"></ion-input> of {{page.totalPages}}
+        </li>
+        <li>
+          <ion-button (click)="changePage('inc')" color="light" expand="block" fill="clear" shape="round"
+            [disabled]="page.currentPage === 0 || page.currentPage === page.totalPages">
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-button>
+        </li>
+        <li>
+          <ion-button (click)="changePage('last')" color="light" expand="block" fill="clear" shape="round"
+            [disabled]="page.currentPage === 0 || page.currentPage === page.totalPages">
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+            <ion-icon name="chevron-forward-outline" class="relative-icon"></ion-icon>
+          </ion-button>
+        </li>
+      </ul>
+    </div> -->
+
+    <div class="facilities" *ngIf="facilities.length > 0">
+      <ion-list style="background: #ebf0f4;" lines="none" class="facilities">
+        <ion-card
+          *ngFor="let item of facilities;let j = index"
+          [id]="j"
+          no-margin
+          no-padding
+          [ngClass]="{'selected-card': selectedCard === j}"
+        >
+          <ion-card-content>
+            <div class="miles" *ngIf="item.miles">
+              <ion-label color="dark">{{item.miles}} miles</ion-label>
+            </div>
+            <ion-row>
+              <ion-col size="1.5" class="vertical-center ion-no-padding">
+                <ion-label color="dark" class="heading">{{j +1}}. </ion-label>
+              </ion-col>
+              <ion-col size="10.5" class="ion-no-padding">
+                <ion-row class="ion-margin-top">
+                  <ion-col size="10" class="pb-0 mt-5">
+                    <ion-label color="dark" class="heading"
+                      >{{item.name1}}</ion-label
+                    >
+                  </ion-col>
+
+                  <ion-col size="9" class="details">
+                    <div>
+                      <ion-label color="dark"
+                        >{{item.street1}}, {{item.city}}, {{item.state}}
+                        {{item.zip}}</ion-label
+                      >
+                    </div>
+                    <div>
+                      <ion-label color="dark">
+                        <a
+                          href="tel:{{item.phone}}"
+                          style="color: black; text-decoration: none;"
+                          >Main Tel: {{item.phone}}</a
+                        >
+                      </ion-label>
+                    </div>
+                    <div>
+                      <ion-label color="dark"
+                        >Source: CSATCenter for Substance Use
+                        Treatment</ion-label
+                      >
+                    </div>
+                  </ion-col>
+                  <ion-col size="3" class="view-in-map">
+                    <ion-button
+                      mode="md"
+                      (click)="viewOnMap(j, item)"
+                      expand="block"
+                      fill="clear"
+                      shape="round"
+                      [disabled]="!isConnection"
+                    >
+                      <img src="assets/icon/viewmap-icon.png" alt="" />
+                    </ion-button>
+                  </ion-col>
+                  <ion-col size="12">
+                    <ion-row>
+                      <ion-col size="4" class="ion-no-padding">
+                        <ion-button
+                          mode="md"
+                          expand="block"
+                          (click)="openDirection(item)"
+                          [disabled]="!isConnection"
+                        >
+                          <ion-icon
+                            src="../../assets/icon/direction.svg"
+                          ></ion-icon>
+                          Direction
+                        </ion-button>
+                      </ion-col>
+                      <ion-col
+                        size="4"
+                        class="ion-no-padding"
+                        *ngIf="item.website"
+                      >
+                        <ion-button
+                          mode="md"
+                          expand="block"
+                          (click)="openLink(item.website)"
+                          [disabled]="!isConnection"
+                        >
+                          <ion-icon
+                            src="../../assets/icon/website.svg"
+                          ></ion-icon>
+                          Website
+                        </ion-button>
+                      </ion-col>
+                      <ion-col
+                        size="4"
+                        class="ion-no-padding"
+                        *ngIf="item.services"
+                      >
+                        <ion-button
+                          mode="md"
+                          expand="block"
+                          (click)="showMoreInfo(item.services)"
+                        >
+                          <ion-icon src="../../assets/icon/info.svg"></ion-icon>
+                          More Info
+                        </ion-button>
+                      </ion-col>
+                    </ion-row>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-list>
+      <ion-infinite-scroll (ionInfinite)="loadMoreData($event)">
+        <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="Loading more data..."
+        >
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </div>
+    <div
+      *ngIf="facilities.length === 0"
+      class="ion-padding-start ion-padding-end"
+      style="margin-top: 80px;"
+    >
+      <p>No results, Please try a different location</p>
+    </div>
+  </div>
+  <div *ngIf="mySearchFlag">
+    <app-mysearch
+      [segmentPage]="true"
+      (loadSegment)="loadSavedSearch($event)"
+      (navigateToMap)="navigateToMap()"
+    >
+    </app-mysearch>
+  </div>
+  <ion-fab
+    horizontal="end"
+    vertical="bottom"
+    slot="fixed"
+    *ngIf="facilities.length > 0 && facilityFlag"
+  >
+    <ion-fab-button class="fab-dark-color" (click)="openShareActionSheet()">
+      <ion-icon name="share"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+
+<!-- <ion-segment [(ngModel)]="selectedSegment" mode="md">
+  <ion-segment-button mode="md" (click)="toggleTab('map')" value="map">
+    <ion-icon name="speedometer"></ion-icon>
+    <ion-label>MAP</ion-label>
+  </ion-segment-button>
+  <ion-segment-button mode="md" (click)="toggleTab('facility')" value="facility">
+    <ion-icon name="list"></ion-icon>
+    <ion-label>FACILITIES</ion-label>
+  </ion-segment-button>
+</ion-segment> -->
