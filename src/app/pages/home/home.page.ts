@@ -41,11 +41,7 @@ export class HomePage implements OnInit {
     },
     {
       role: 'responder',
-      menus: [
-        'find treatment locations',
-        'preparing to deploy',
-        'on-the-ground assistance',
-      ],
+      menus: ['find treatment locations', 'preparing to deploy'],
     },
     {
       role: 'survivor',
